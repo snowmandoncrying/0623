@@ -1,0 +1,10 @@
+컴파일 --> TestJava.class
+
+C:> javac TestJava
+
+실행
+
+C:> java TestJava
+
+jvm 이 프로그램을 실행할 때는 TestJava.class를 가지고 실행한다.
+
