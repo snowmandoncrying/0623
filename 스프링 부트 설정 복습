@@ -53,7 +53,26 @@ ddl-auto = validate : DB 수정 적용하지 않음 (컬럼 추가, 생성 불�
 <h4>username : [[${username}]]</h4>
   대괄호 두개를 넣어주면 타임리프를 쓰지 않고 작성할 수 있다.
 
+	@PostMapping("userPro")
+	public String userPro(UserDTO userDTO, @RequestParam("gender") String gender, Model model
+							// model 을 쓰면 뷰까지 보내겠다는 뜻 - 파라미터로 받은 걸 addAttribute 로 그대로 보내겠다
+							// gender 만 리퀘스트 파라미터로 받아 쓰고 싶을 때 -- 근데 dto 에도 들어가고 파라미터에도 들어간다.
+	) {
+			model.addAttribute("username","kkkkkk");
+			// 가입할 때 보낸 걸 모델이 다시 덮어씌움
+			System.out.println(userDTO.getUsername());
+			System.out.println(userDTO.getPassword());
+			System.out.println(userDTO.getEmail());
+			System.out.println(gender);
+			System.out.println(userDTO.getHobbies());
+			System.out.println(userDTO.getCountry());
+			// DTO 에서 다 작업했으니까 꺼내면 되는 것이다. --리퀘스트 파람 대신에 사용
+		return "userPro";
+	}
 
+@Id 라는 어노테이션 -- 프라이머리 키 설정 --> 검색 속도를 올려주기 위해서 사용
+인덱스를 문자로 쓰면 검색 속도가 느려짐. 숫자로 쓰면 빠르기 떄문에 쓰는 것이다.
+다른 테이블하고 중복되지 않고 연결시킬 수 있다.
 
 
 
