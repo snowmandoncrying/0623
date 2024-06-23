@@ -25,10 +25,23 @@ JPA는 관계형 데이터베이스를 쓴다. Apache Freemaker은 스트럭처�
   그리고 다시 라이브러리를 받으면 된다. 
   그래도 안 된다면 project and dependence 뒤 경로가 나오는데 경로를 직접 찾아가서 삭제했다가 다시 깔면 된다.
 
+@ Application properties
 
+spring.jpa.hibernate.ddl-auto=update
+  업데이트 기능은 수정을 가능하게 해준다. 하지만 오타가 난 경우에도 컬럼을 생성하고 새로 추가한 컬럼도 만들어주는 단점이 있다.
+오타가 났을 때 재작성해야하는데 create로 바꿔줘야한다. 이는 테이블을 삭제하고 다시 만드는 것이다.
+spring.jpa.hibernate.ddl-auto=create
 
+spring.jpa.hibernate.ddl-auto=validate 
+  이렇게 하면 컬럼을 수정할 수 없다. validate는 있는 그대로 쓰는 것만 허용한다.
 
+오라클에서는 처음 작업할 때 create로 하다가 validate로 바꿔야 한다.
+마이바티스와 함께 쓸거면 여기에 추가하면 된다. 충돌하지 않기 때문이다.
+리포지토리를 jpa용, mybatis용 총 두 개 만들면 된다.
 
+ddl-auto = create : 서버 실행시마다 DB 재작성 (지웠다가 다시 만든다)
+ddl-auto = update : 서버 실행시마다 수정사항을 적용
+ddl-auto = validate : DB 수정 적용하지 않음 (컬럼 추가, 생성 불가)
 
 
 
