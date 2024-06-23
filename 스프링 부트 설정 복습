@@ -44,6 +44,16 @@ ddl-auto = update : 서버 실행시마다 수정사항을 적용
 ddl-auto = validate : DB 수정 적용하지 않음 (컬럼 추가, 생성 불가)
 
 
+@ RestController 어노테이션
+  responseBody 가 적용된 컨트롤러로  view 없이 작업할 때 사용한다. 바로 view로 이동하게 해준다.
+
+<a th:attr="href=@{/th/main}, title=${'Main'}">메인으로<a>
+  attr 속성은 th를 같이 쓸 수 있게 해준다. 즉 앞에 설정해놓으면 뒤에 th를 추가하지 않아도 적용시켜주는 것이다.
+
+<h4>username : [[${username}]]</h4>
+  대괄호 두개를 넣어주면 타임리프를 쓰지 않고 작성할 수 있다.
+
+
 
 
 
